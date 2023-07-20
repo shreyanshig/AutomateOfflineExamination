@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <Title>Login Form</Title>
+        <meta name="viewport" content="width=device-width,initial-scale=1.0">
+        <link rel="stylesheet" href="stylesheet/style.css">
+        <link href="stylesheet/home.css" rel="stylesheet" >
+        <script type="text/javascript" src="jsscript/login.js"></script>
+        <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+        <script src="jsscript/jquery.js"></script>
+    </head>
+    <body>
+        <div class="form">
+            <h2>Login as an Invigilator</h2><br>
+            <h4>Fill the unique IV id, password provided by the institution</h4>
+            <div class="input">
+                <div class="inputBox">
+                    <label for="">Username</label>
+                    <input type="text" id="ivuname">
+                </div>
+                <div class="inputBox">
+                    <label for="">Password</label>
+                    <input type="password" id="password">
+                </div>
+                <div class="inputBox">
+                    <input type="submit" name=""  id="ivappid" value="Sign In" onclick="ivappsignin()"> 
+                </div><br><br>
+            </div>
+        </div><br><br><br>
+        <div class="form">
+            <h2>Login as an Evaluator</h2><br>
+            <h4>Fill the unique EV id, password provided by the institution</h4>
+            <div class="input">
+                <div class="inputBox">
+                    <label for="">Username</label>
+                    <input type="text">
+                </div>
+                <div class="inputBox">
+                    <label for="">Password</label>
+                    <input type="password">
+                </div>
+                <div class="inputBox">
+                    <input type="submit" name="" id="evappid" value="Sign In" onclick="evappsignin()">
+                </div><br><br>
+            </div>
+        </div>
+        
+    </body>
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>QR Code Scanner</title>
+    <script type="text/javascript" src="jsscript/html5-qrcode.min.js"></script>
+    <link href="stylesheet/IVScan.css" rel="stylesheet" >
+  </head>
+  <body>
+      <h1>Scan A Student Admit Card</h1>
+    <div class="row">
+      <div class="col">
+        <div style="width: 500px" id="reader"></div>
+      </div>
+      <div class="col" style="padding: 30px">
+        <h4>SCAN RESULT</h4>
+        <div id="result">Result Here</div>
+      </div>
+    </div>
+
+    <script type="text/javascript">
+      function onScanSuccess(qrCodeMessage) {
+        document.getElementById("result").innerHTML = '<span class="result">' + qrCodeMessage + "</span>";
+        console.log("scanned the qr code");
+        sendDetails();
+      }
+
+      function onScanError(errorMessage) {
+        //handle scan error
+      }
+      function sendDetails()
+      {
+          let data = {roll_no : document.querySelector(".result").innerHTML.trim()};
+          console.log("senddetails "+document.querySelector(".result").innerHTML.trim());
+          $.post("AdmitCardContollerServlet", data, function(responseText){
+            console.log("sending thre data");
+            if(responseText === "yes"){
+                swal("Sucess!", "QR Code Sacnner Successfull!", "success").then(value => {
+                    window.location = "showStudentDetails.jsp";
+                });
+            }
+            else{
+                swal("Failed!", "Such a Student is not registered with us", "error");
+            }
+        });
+      }
+
+      var html5QrcodeScanner = new Html5QrcodeScanner("reader", {
+        fps: 10,
+        qrbox: 250,
+      });
+      html5QrcodeScanner.render(onScanSuccess, onScanError);
+    </script>
+  </body>
+</html>
