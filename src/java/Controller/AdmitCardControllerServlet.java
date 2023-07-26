@@ -44,12 +44,15 @@ public class AdmitCardControllerServlet extends HttpServlet {
             response.sendRedirect("accessdenied.html");
             return;
         }
-        String roll_no = request.getParameter("roll_no");
+        String roll_no = (String)request.getParameter("roll_no");
+        session.setAttribute("roll_no", roll_no);
+        System.out.println("roll no is "+roll_no);
         StudentDTO obj = new StudentDTO();
         obj.setRoll_no(roll_no);
         try
         {
             boolean tf = IVAppDAO.searchStudent(obj);
+            request.setAttribute("roll_no", roll_no);
             request.setAttribute("result", tf);
             rd = request.getRequestDispatcher("studentSearchResult.jsp");
         }

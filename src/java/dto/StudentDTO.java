@@ -5,6 +5,8 @@
  */
 package dto;
 
+import java.io.InputStream;
+
 /**
  *
  * @author Shreyanshi
@@ -19,7 +21,7 @@ public class StudentDTO
     private String school;
     private String father_name;
     private String mother_name;
-    private String photo;
+    private InputStream photo;
     public StudentDTO(){
         
     }
@@ -29,7 +31,7 @@ public class StudentDTO
         return "StudentDTO{" + "roll_no=" + roll_no + ", name=" + name + ", grade=" + grade + ", board=" + board + ", center_id=" + center_id + ", school=" + school + ", father_name=" + father_name + ", mother_name=" + mother_name + ", photo=" + photo + '}';
     }
 
-    public StudentDTO(String roll_no, String name, String grade, String board, String center_id, String school, String father_name, String mother_name, String photo) {
+    public StudentDTO(String roll_no, String name, String grade, String board, String center_id, String school, String father_name, String mother_name, InputStream photo) {
         this.roll_no = roll_no;
         this.name = name;
         this.grade = grade;
@@ -105,11 +107,11 @@ public class StudentDTO
         this.mother_name = mother_name;
     }
 
-    public String getPhoto() {
+    public InputStream getPhoto() {
         return photo;
     }
 
-    public void setPhoto(String photo) {
+    public void setPhoto(InputStream photo) {
         this.photo = photo;
     }
 }

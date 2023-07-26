@@ -5,7 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>QR Code Scanner</title>
     <script type="text/javascript" src="jsscript/html5-qrcode.min.js"></script>
+    <script type="text/javascript" src="jsscript/jquery.js"></script>
     <link href="stylesheet/IVScan.css" rel="stylesheet" >
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
   </head>
   <body>
       <h1>Scan A Student Admit Card</h1>
@@ -20,30 +22,27 @@
     </div>
 
     <script type="text/javascript">
+          
       function onScanSuccess(qrCodeMessage) {
         document.getElementById("result").innerHTML = '<span class="result">' + qrCodeMessage + "</span>";
         console.log("scanned the qr code");
-        sendDetails();
-      }
-
-      function onScanError(errorMessage) {
-        //handle scan error
-      }
-      function sendDetails()
-      {
-          let data = {roll_no : document.querySelector(".result").innerHTML.trim()};
-          console.log("senddetails "+document.querySelector(".result").innerHTML.trim());
-          $.post("AdmitCardContollerServlet", data, function(responseText){
+        document.getElementsByTagName("button")[1].click();
+        let data = {roll_no : document.querySelector(".result").innerHTML.trim()};
+        console.log("senddetails "+document.querySelector(".result").innerHTML.trim());
+        $.post("AdmitCardControllerServlet", data, function(responseText){
             console.log("sending thre data");
-            if(responseText === "yes"){
+            if(responseText.trim() === "yes"){
                 swal("Sucess!", "QR Code Sacnner Successfull!", "success").then(value => {
-                    window.location = "showStudentDetails.jsp";
+                    window.location = "ShowStudentDetailControllerServlet";
                 });
             }
             else{
                 swal("Failed!", "Such a Student is not registered with us", "error");
             }
         });
+      }
+      function onScanError(errorMessage) {
+        //handle scan error
       }
 
       var html5QrcodeScanner = new Html5QrcodeScanner("reader", {

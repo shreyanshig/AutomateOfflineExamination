@@ -7,6 +7,9 @@ and open the template in the editor.
     Created on : 19 Jul, 2023, 7:58:13 AM
     Author     : Shreyanshi
 */
+/*body{
+        background-image: url('../images/QRCodeBackground.png');
+}*/
 .result {
         background-color: green;
         color: #fff;

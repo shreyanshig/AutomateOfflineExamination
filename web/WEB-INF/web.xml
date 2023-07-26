@@ -8,6 +8,30 @@
         <servlet-name>AdmitCardControllerServlet</servlet-name>
         <servlet-class>Controller.AdmitCardControllerServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>AddNewStudentControllerServlet</servlet-name>
+        <servlet-class>Controller.AddNewStudentControllerServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ShowStudentDetailControllerServlet</servlet-name>
+        <servlet-class>Controller.ShowStudentDetailControllerServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>AnswerSheetControllerServlet</servlet-name>
+        <servlet-class>Controller.AnswerSheetControllerServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>EVLoginControllerServlet</servlet-name>
+        <servlet-class>Controller.EVLoginControllerServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>EVAnswerSheetControllerServlet</servlet-name>
+        <servlet-class>Controller.EVAnswerSheetControllerServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>EVShowStudentDetailControllerServlet</servlet-name>
+        <servlet-class>Controller.EVShowStudentDetailControllerServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>LoginControllerServlet</servlet-name>
         <url-pattern>/LoginControllerServlet</url-pattern>
@@ -15,6 +39,30 @@
     <servlet-mapping>
         <servlet-name>AdmitCardControllerServlet</servlet-name>
         <url-pattern>/AdmitCardControllerServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AddNewStudentControllerServlet</servlet-name>
+        <url-pattern>/AddNewStudentControllerServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ShowStudentDetailControllerServlet</servlet-name>
+        <url-pattern>/ShowStudentDetailControllerServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AnswerSheetControllerServlet</servlet-name>
+        <url-pattern>/AnswerSheetControllerServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>EVLoginControllerServlet</servlet-name>
+        <url-pattern>/EVLoginControllerServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>EVAnswerSheetControllerServlet</servlet-name>
+        <url-pattern>/EVAnswerSheetControllerServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>EVShowStudentDetailControllerServlet</servlet-name>
+        <url-pattern>/EVShowStudentDetailControllerServlet</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

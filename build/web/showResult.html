@@ -6,12 +6,15 @@
     <title>Document</title>
     <script>
         function redirect(){
-            window.location = "IVAnswerSheetScan.html";
+            let result = document.querySelector(".result").innerHTML;
+            document.querySelector(".div").innerHTML = result;
+            console.log("this is anouther html page");
         }
     </script>
 </head>
 <body>
     Your details have been verified!
+    <div class="div"></div>
     <input type="button" value="click here to scan the answer sheet" onclick="redirect()"/>
 </body>
 </html>

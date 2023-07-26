@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+<head>
+	<title>Ev App Main Page</title>
+	<link rel="stylesheet" type="text/css" href="stylesheet/evstyle.css">
+        <script>
+            function redirect()
+            {
+                window.location = "EVAnswerSheetScan.html";
+            }
+        </script>
+</head>
+<body>
+	<div class="main">
+		<div class="overlay"></div>
+		<div class="navbar">
+			<div class="logo">LOGO</div>
+			<ul>
+				<li><a href="#">HOME</a></li>
+				<li><a href="#">HELP</a></li>
+				<li><a href="#">ABOUT US</a></li>
+				<li><a href="#">CONTACT US</a></li>
+                                <li><a href="#">LOGOUT</a></li>
+			</ul>
+		</div>
+		<div class="heading">
+				<h1 class="head">Welcome dear <span>Evaluator!</span></h1>
+				<h3 class="sub">Step 1: Scan the answer sheet</h3>
+                                <h3 class="sub">Step 2: Upload student marks </h3>
+                                <h3 class="sub">Step 3: Check and submit finally</h3>
+				<div class="btns">
+					<a class="btn2" href="#" onclick="redirect()">SCAN ANSWER SHEET</a>
+				</div>	
+		</div>
+	</div>	
+</body>
+</html>

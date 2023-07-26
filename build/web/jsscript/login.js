@@ -37,6 +37,10 @@ function processResponse(responseText, textStatus, xhr)
     if(result === "error"){
         swal("Access denied!", "Invalid userid / password", "error");
     }
+    else if(result === "exceeded"){
+        swal("Failed!", "You have entered wrong password 5 times in a row.You have been blocked! Contact the admin to\
+              unblock your Credentials", "error");
+    }
     else if(result.indexOf("jsessionid") !== -1){
         let pr = swal("Sucees", "Login Successful", "success");
         pr.then( (value) => {
@@ -46,6 +50,21 @@ function processResponse(responseText, textStatus, xhr)
     else{
         swal("Access denied", "Some problem in the server occured:"+responseText, "error");
     }
+}function evappsignin()
+{
+    username = $("#evname").val();
+    password = $("#evpassword").val();
+    if(validate() === false){
+        swal("Access denied!", "All fields are mandatory", "error");
+        return;
+    }
+    let data = {username : username,
+                password : password
+               };
+    let xhr = $.post("EVLoginControllerServlet", data, processResponse);
+    xhr.fail(handleError);
+    
 }
+
 
 

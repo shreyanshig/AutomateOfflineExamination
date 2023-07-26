@@ -42,6 +42,13 @@ public class LoginControllerServlet extends HttpServlet {
         try
         {
             boolean tf = IVAppDAO.searchInvig(obj);
+            int num = IVAppDAO.addInvCredDetail(username);
+            if(num >= 5){
+                request.setAttribute("incorrectCred", "yes");
+            }
+            else if(num < 5 && tf == true){
+                IVAppDAO.removeInvCred(username);
+            }
             request.setAttribute("result", tf);
             request.setAttribute("userid", username);
             System.out.println("LoginControllerServlet"+" "+"tf is"+tf);

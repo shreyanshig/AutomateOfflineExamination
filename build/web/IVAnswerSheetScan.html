@@ -6,6 +6,8 @@
     <title>QR Code Scanner</title>
     <script type="text/javascript" src="jsscript/html5-qrcode.min.js"></script>
     <link href="stylesheet/IVScan.css" rel="stylesheet" >
+    <script type="text/javascript" src="jsscript/jquery.js"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
   </head>
   <body>
       <h1>Scan the Answer Sheet provided to the Concerned Student</h1>
@@ -23,8 +25,22 @@
       function onScanSuccess(qrCodeMessage) {
         document.getElementById("result").innerHTML = '<span class="result">' + qrCodeMessage + "</span>";
         console.log(document.querySelector(".result").innerHTML);
+        document.getElementsByTagName("button")[1].click();
+//        document.getElementById("response").click();
+        let data = {sheet_no : document.querySelector(".result").innerHTML.trim()};
+          console.log(data);
+          $.post("AnswerSheetControllerServlet", data, function(responseText){
+            console.log("sending thre data");
+            if(responseText.trim() === "yes"){
+                swal("Sucess!", "Answer Sheet has been attached! Attendance has been marked", "success").then(value =>{
+                    window.location = "IVAdmitCardScan.html";
+                });
+            }
+            else{
+                swal("Failed!", "Some Server Error Occured! Kindly go back and scan answersheet again", "error");
+            }
+        });
       }
-
       function onScanError(errorMessage) {
         //handle scan error
       }
