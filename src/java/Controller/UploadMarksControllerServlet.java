@@ -20,7 +20,7 @@ import javax.servlet.http.HttpSession;
  *
  * @author Shreyanshi
  */
-public class EVShowStudentDetailControllerServlet extends HttpServlet {
+public class UploadMarksControllerServlet extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -41,14 +41,16 @@ public class EVShowStudentDetailControllerServlet extends HttpServlet {
             response.sendRedirect("accessdenied.html");
             return;
         }
+        String marks = (String)request.getParameter("marks");
         String roll_no = (String)session.getAttribute("roll_no");
-        String sheet_no = (String)session.getAttribute("sheet_no");
+        String subject = (String)session.getAttribute("subject");
+        System.out.println("Inside marksuploadcontrollerervlet");
         try
         {
-            EVStudentDTO student = EVAppDAO.getStudentDetails(roll_no, sheet_no);
-            request.setAttribute("student", student);
-            rd = request.getRequestDispatcher("evshowresult.jsp");
-            session.setAttribute("subject", student.getSubject());
+            float m = Float.parseFloat(marks);
+            boolean tf = EVAppDAO.addMarks(roll_no, subject, m);
+            request.setAttribute("result", tf);
+            rd = request.getRequestDispatcher("uploadmarksresult.jsp");
         }
         catch(Exception ex){
             ex.printStackTrace();
