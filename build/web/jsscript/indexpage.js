@@ -4,9 +4,13 @@
  * and open the template in the editor.
  */
 var userid , password;
-function ivappsignin()
+function sendhomepage()
 {
-    username = $("#ivuname").val();
+    window.location = "home.html";
+}
+function loginAdmin()
+{
+    username = $("#username").val();
     password = $("#password").val();
     if(validate() === false){
         swal("Access denied!", "All fields are mandatory", "error");
@@ -15,9 +19,8 @@ function ivappsignin()
     let data = {username : username,
                 password : password
             };
-    let xhr = $.post("LoginControllerServlet", data, processResponse);
+    let xhr = $.post("AdminLoginControllerServlet", data, processResponse);
     xhr.fail(handleError);
-    
 }
 function validate()
 {
@@ -51,21 +54,5 @@ function processResponse(responseText, textStatus, xhr)
         swal("Access denied", "Some problem in the server occured:"+responseText, "error");
     }
 }
-function evappsignin()
-{
-    username = $("#evname").val();
-    password = $("#evpassword").val();
-    if(validate() === false){
-        swal("Access denied!", "All fields are mandatory", "error");
-        return;
-    }
-    let data = {username : username,
-                password : password
-               };
-    let xhr = $.post("EVLoginControllerServlet", data, processResponse);
-    xhr.fail(handleError);
-    
-}
-
 
 

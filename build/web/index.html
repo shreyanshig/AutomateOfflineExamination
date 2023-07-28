@@ -5,46 +5,44 @@ and open the template in the editor.
 -->
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Title of the document</title>
-    <style>
-      .container {
-        width: 600px;
-        height: 190px;
-        background-color: #5cbbf2;
-        padding: 35px 15px 5px;
-      }
-      .container:before,
-      .container:after {
-        content: "";
-        display: table;
-        clear: both;
-      }
-      .container div {
-        float: left;
-        width: 180px;
-        height: 160px;
-      }
-      #box2 {
-        background-color: #000000;
-        margin-left: 30px;
-        margin-right: 30px;
-      }
-      p {
-        color: white;
-        padding: 5px 10px;
-        text-align: center;
-      }
-    </style>
-  </head>
-  <body>
-    <h2>Home page</h2>
-    <div class="container">
-      <div id="box1">
-        <img src="https://pp.userapi.com/c622225/v622225117/10f33/47AAEI48pJU.jpg?ava=1" style="width:180px; height:160px;">
-      </div>
-      <div id="box2">
-        <p> We can create as many divs as many we want side by side with the same height and also with the different heights. </p>
-      </div>
-    </div>
+    <head>
+        <title>Title of the document</title>
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=Fira+Code&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Acme&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="stylesheet/indexpage.css"/>
+        <script src="jsscript/indexpage.js"></script>
+        <script src="jsscript/jquery.js"></script>
+        <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    </head>
+    <body>
+        <div class="wrapper">
+            <div class="box">
+                <div class="description">
+                    <h2>Login as Admin</h2><br><br><br><br>
+                    <span class="list">
+                        <span>Enter User id :</span><input type="text" id="username"/><br><br><br>
+                        <span>Enter password :</span><input type="password" id="password"/><br><br>
+                        <input type="submit" onclick="loginAdmin()"/>
+                    </span>
+                </div>
+            </div>
+            <div class="box" onclick="sendhomepage()">
+                <div class="description">
+                    <h2>Login as Invigilator / Evaluator</h2>
+                </div>
+            </div>
+        </div>
+        <script src="https://kit.fontawesome.com/bad7f7f5d4.js" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.7.0/vanilla-tilt.min.js"></script>
+        <script>
+                VanillaTilt.init(document.querySelectorAll(".box"), {
+                    max: 25,
+                    speed: 400,
+                    easing: "cubic-bezier(.03,.98,.52,.99)",
+                    perspective: 500,
+                    transition: true
+                });
+        </script>
+    </body>
 </html>

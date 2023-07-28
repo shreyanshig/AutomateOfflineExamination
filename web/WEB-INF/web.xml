@@ -36,6 +36,10 @@
         <servlet-name>UploadMarksControllerServlet</servlet-name>
         <servlet-class>Controller.UploadMarksControllerServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>AdminLoginControllerServlet</servlet-name>
+        <servlet-class>Controller.AdminLoginControllerServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>LoginControllerServlet</servlet-name>
         <url-pattern>/LoginControllerServlet</url-pattern>
@@ -71,6 +75,10 @@
     <servlet-mapping>
         <servlet-name>UploadMarksControllerServlet</servlet-name>
         <url-pattern>/UploadMarksControllerServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AdminLoginControllerServlet</servlet-name>
+        <url-pattern>/AdminLoginControllerServlet</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

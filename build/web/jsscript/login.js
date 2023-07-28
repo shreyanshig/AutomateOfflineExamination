@@ -50,7 +50,8 @@ function processResponse(responseText, textStatus, xhr)
     else{
         swal("Access denied", "Some problem in the server occured:"+responseText, "error");
     }
-}function evappsignin()
+}
+function evappsignin()
 {
     username = $("#evname").val();
     password = $("#evpassword").val();
