@@ -9,6 +9,7 @@ import dbutil.DBConnection;
 import dto.IVDTO;
 import dto.StudentDTO;
 import dto.StudentDetails;
+import dto.Subjects;
 import java.io.ByteArrayOutputStream;
 import java.io.InputStream;
 import java.sql.Blob;
@@ -24,7 +25,7 @@ import java.util.Base64;
  */
 public class IVAppDAO
 {
-    private static PreparedStatement ps1, ps2, ps3, ps4, ps5, ps6, ps7, ps8, ps9;
+    private static PreparedStatement ps1, ps2, ps3, ps4, ps5, ps6, ps7, ps8, ps9, ps10;
     static
     {
         try
@@ -38,6 +39,7 @@ public class IVAppDAO
             ps7 = DBConnection.getConnection().prepareStatement("Select inv_cred from incorrect_cred where username=?");
             ps8 = DBConnection.getConnection().prepareStatement("Delete from incorrect_cred where username=?");
             ps9 = DBConnection.getConnection().prepareStatement("Insert into incorrect_cred values(?,?)");
+            ps10 = DBConnection.getConnection().prepareStatement("Insert into Student_subject values(?,?,?)");
         }
         catch(SQLException ex){
             ex.printStackTrace();
@@ -163,5 +165,16 @@ public class IVAppDAO
     {
         ps8.setString(1, username);
         ps8.executeUpdate();
+    }
+    public static boolean addSubjects(Subjects subArr[])throws SQLException
+    {
+        for(Subjects s : subArr){
+            ps10.setString(1, s.getRoll_no());
+            ps10.setString(2, s.getS());
+            ps10.setString(3, s.getD());
+            if(ps10.executeUpdate() == 0)
+                return false;
+        }
+        return true;
     }
 }

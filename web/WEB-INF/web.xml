@@ -40,6 +40,22 @@
         <servlet-name>AdminLoginControllerServlet</servlet-name>
         <servlet-class>Controller.AdminLoginControllerServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>RegisterInvigControllerServlet</servlet-name>
+        <servlet-class>Controller.RegisterInvigControllerServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>RegisterEvalControllerServlet</servlet-name>
+        <servlet-class>Controller.RegisterEvalControllerServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>RetriveResultControllerServlet</servlet-name>
+        <servlet-class>Controller.RetriveResultControllerServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>RetriveStudentDetailControllerServlet</servlet-name>
+        <servlet-class>Controller.RetriveStudentDetailControllerServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>LoginControllerServlet</servlet-name>
         <url-pattern>/LoginControllerServlet</url-pattern>
@@ -79,6 +95,22 @@
     <servlet-mapping>
         <servlet-name>AdminLoginControllerServlet</servlet-name>
         <url-pattern>/AdminLoginControllerServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>RegisterInvigControllerServlet</servlet-name>
+        <url-pattern>/RegisterInvigControllerServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>RegisterEvalControllerServlet</servlet-name>
+        <url-pattern>/RegisterEvalControllerServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>RetriveResultControllerServlet</servlet-name>
+        <url-pattern>/RetriveResultControllerServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>RetriveStudentDetailControllerServlet</servlet-name>
+        <url-pattern>/RetriveStudentDetailControllerServlet</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

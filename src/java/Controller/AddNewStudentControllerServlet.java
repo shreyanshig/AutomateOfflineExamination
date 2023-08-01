@@ -7,6 +7,7 @@ package Controller;
 
 import dao.IVAppDAO;
 import dto.StudentDTO;
+import dto.Subjects;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.PrintWriter;
@@ -73,14 +74,21 @@ public class AddNewStudentControllerServlet extends HttpServlet {
             student.setSchool(objValues.get(5));
             student.setFather_name(objValues.get(6));
             student.setMother_name(objValues.get(7));
-            boolean result = IVAppDAO.addStudent(student);
-            if(result)
+            Subjects s1 = new Subjects(objValues.get(0), objValues.get(8), objValues.get(9));
+            Subjects s2 = new Subjects(objValues.get(0), objValues.get(10), objValues.get(11));
+            Subjects s3 = new Subjects(objValues.get(0), objValues.get(12), objValues.get(13));
+            Subjects s4 = new Subjects(objValues.get(0), objValues.get(14), objValues.get(15));
+            Subjects s5 = new Subjects(objValues.get(0), objValues.get(16), objValues.get(17));
+            Subjects subArr[] = {s1, s2, s3, s4, s5};
+            boolean r1 = IVAppDAO.addSubjects(subArr);
+            boolean r2 = IVAppDAO.addStudent(student);
+            if(r1 == true && r2 == true)
                 rd = request.getRequestDispatcher("success.jsp");
             else
                 rd = request.getRequestDispatcher("failure.jsp");
         }
         catch(Exception e){
-            System.out.println("Exception occured in AddNewCandidateControllerServlet"+e);
+            System.out.println("Exception occured in addnewstudentcontrollerservlet"+e);
             e.printStackTrace();
             request.setAttribute("Exception", e);
             rd = request.getRequestDispatcher("showexception.jsp");

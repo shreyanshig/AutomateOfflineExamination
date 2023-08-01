@@ -24,21 +24,21 @@ and open the template in the editor.
     <body>
         <div class="wrapper">
             <div class="box">
-                <div class="description">
+                <div class="description" id="opt1">
                     <h2>Add a student</h2><br><br><br><br>
                 </div>
             </div>
-            <div class="box" onclick="sendhomepage()">
+            <div class="box" id="opt2">
                 <div class="description">
                     <h2>Add invigilator credentials</h2>
                 </div>
             </div>
-            <div class="box" onclick="sendhomepage()">
+            <div class="box" id="opt3">
                 <div class="description">
                     <h2>Add evaluator credentials</h2>
                 </div>
             </div>
-            <div class="box" onclick="sendhomepage()">
+            <div class="box" id="opt4">
                 <div class="description">
                     <h2>Check result</h2>
                 </div>
@@ -55,5 +55,6 @@ and open the template in the editor.
                     transition: true
                 });
         </script>
+        <script src="jsscript/Adminactions.js"></script>
     </body>
 </html>

@@ -3,6 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+window.addEventListener("load", ()=>{
+    showstudentform();
+});
 function showstudentform()
 {
     removecandidateForm();
@@ -24,10 +27,14 @@ function showstudentform()
     <tr><th>Father Name :</th><td><input type='text' id='fname'></td></tr>\
     <tr><th>Mother Name :</th><td><input type='text' id='mname'></td></tr>\
     <tr><td colspan='2'><input type='file' name ='files' value='Select Student Photo'></td></tr>\
+    <tr><th><input type='text' placeholder='Subject 1' id='s1'/></th><td><input type='text' placeholder='date (dd-mm-yyyy)' id='d1'/></td></tr>\
+    <tr><th><input type='text' placeholder='Subject 2' id='s2'/></th><td><input type='text' placeholder='date (dd-mm-yyyy)' id='d2'/></td></tr>\
+    <tr><th><input type='text' placeholder='Subject 3' id='s3'/></th><td><input type='text' placeholder='date (dd-mm-yyyy)' id='d3'/></td></tr>\
+    <tr><th><input type='text' placeholder='Subject 4' id='s4'/></th><td><input type='text' placeholder='date (dd-mm-yyyy)' id='d4'/></td></tr>\
+    <tr><th><input type='text' placeholder='Subject 5' id='s5'/></th><td><input type='text' placeholder='date (dd-mm-yyyy)' id='d5'/></td></tr>\
     <tr><th><input type='button' value='Add Student' onclick='addstudent()' id='addsdt'></th>\
-    <th><input type='reset' value='Clear' onclick='clearText()'></th></tr></table></form>"+
-    "<br><span id='addresp'></span>";
-    var addcand = $("#result")[0];
+    <th><input type='reset' value='Clear' onclick='clearText()'></th></tr>\</table></form>"+"<br><span id='addresp'></span>";
+    var addcand = $(".sign-up-form")[0];
     addcand.appendChild(newdiv);
     $("#studentform").hide();
     $("#studentform").fadeIn(3500);
@@ -49,6 +56,16 @@ function addstudent()
     let school = $("#school").val();
     let fname = $("#fname").val();
     let mname = $("#mname").val();
+    let s1 = $("#s1").val();
+    let d1 = $("#d1").val();
+    let s2 = $("#s2").val();
+    let d2 = $("#d2").val();
+    let s3 = $("#s3").val();
+    let d3 = $("#d3").val();
+    let s4 = $("#s4").val();
+    let d4 = $("#d4").val();
+    let s5 = $("#s5").val();
+    let d5 = $("#d5").val();
     data.append("roll_no", roll_no);
     data.append("sname", sname);
     data.append("class", grade);
@@ -56,7 +73,17 @@ function addstudent()
     data.append("centerid", centerid);
     data.append("school", school);
     data.append("fname", fname);
-    data.append("sname", sname);
+    data.append("mname", mname);
+    data.append("s1", s1);
+    data.append("d1", d1);
+    data.append("s2", s2);
+    data.append("d2", d2);
+    data.append("s3", s3);
+    data.append("d3", d3);
+    data.append("s4", s4);
+    data.append("d4", d4);
+    data.append("s5", s5);
+    data.append("d5", d5);
     $.ajax({
         type : "POST",
         enctype : 'multipart/form-data',
