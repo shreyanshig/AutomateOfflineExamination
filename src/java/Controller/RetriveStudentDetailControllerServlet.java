@@ -5,12 +5,14 @@
  */
 package Controller;
 
+import dao.AdminDAO;
 import dao.IVAppDAO;
 import dto.StudentDetails;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.LinkedHashMap;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -47,7 +49,9 @@ public class RetriveStudentDetailControllerServlet extends HttpServlet {
         String roll_no = (String)session.getAttribute("roll_no");
         try{
                 StudentDetails student = IVAppDAO.getDetailsByRoll_No(roll_no);
+                LinkedHashMap<String, Float> hm = (LinkedHashMap)AdminDAO.getMarksByRoll_no(roll_no);
                 request.setAttribute("details", student);
+                request.setAttribute("marks", hm);
                 rd = request.getRequestDispatcher("displayresult.jsp");
         }
         catch(Exception e){

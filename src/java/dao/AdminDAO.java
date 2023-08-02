@@ -67,9 +67,13 @@ public class AdminDAO
         ps5.setString(1, roll_no);
         LinkedHashMap<String, Float> hm = new LinkedHashMap<String, Float>();
         ResultSet rs = ps5.executeQuery();
+        int a = 0;
         while(rs.next()){
             hm.put(rs.getString(1), rs.getFloat(2));
+            a++;
         }
+        if(a != 5)
+            return new LinkedHashMap<String, Float>();
         return hm;
     }
     
